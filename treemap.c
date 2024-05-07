@@ -25,7 +25,7 @@ int is_equal(TreeMap* tree, void* key1, void* key2){
     else return 0;
 }
 
-
+//------------------------------------------------------------------------
 TreeNode * createTreeNode(void* key, void * value) {
     TreeNode * new = (TreeNode *)malloc(sizeof(TreeNode));
     if (new == NULL) return NULL;
@@ -35,7 +35,7 @@ TreeNode * createTreeNode(void* key, void * value) {
     new->parent = new->left = new->right = NULL;
     return new;
 }
-
+//------------------------------------------------------------------------
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
 {
     TreeMap * new = (TreeMap *)malloc(sizeof(TreeMap));
@@ -44,12 +44,49 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
     new->lower_than = lower_than;
     return new;
 }
+//------------------------------------------------------------------------
+void insertTreeMap(TreeMap * tree, void* key, void * value)
+{
+    if (tree == NULL || key == NULL || value == NULL) return;
 
-
-void insertTreeMap(TreeMap * tree, void* key, void * value) {
-
+    if (tree->root == NULL)
+    {
+        tree->root = createTreeNode(key, value);
+    }
+    else
+    {
+        TreeNode *aux = tree->root;
+        TreeNode *parent = NULL;
+        while (aux != NULL)
+        {
+            if (is_equal(tree, key, aux->pair))
+            {
+                return;
+            }
+            if (aux->left == NULL)
+            {
+                TreeNode *new = createTreeNode(key, value);
+                new->parent = parent;
+                aux->left = new;
+                aux->right = new;
+                return;
+            }
+            else
+            {
+                parent = aux;
+                if (tree->lower_than(key, aux->pair))
+                {
+                    aux = aux->left;
+                }
+                else
+                {
+                    aux = aux->right;
+                }
+            }
+        }
+    }
 }
-
+//------------------------------------------------------------------------
 TreeNode * minimum(TreeNode * x){
 
     return NULL;
