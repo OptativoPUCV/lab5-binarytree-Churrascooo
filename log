@@ -172,3 +172,14 @@ treemap.c:108:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 d04d64c
+Wed 08 May 2024 03:25:40 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:110:12: error: returning ‘void *’ from a function with return type ‘int’ makes integer from pointer without a cast [-Werror=int-conversion]
+  110 |     return NULL;
+      |            ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ae5e905
