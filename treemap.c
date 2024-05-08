@@ -104,7 +104,7 @@ TreeNode * minimum(TreeNode * x)
     }
     if (x->left == NULL)
     {
-        return 
+        return x;
     }
     return NULL;
 }
