@@ -248,3 +248,14 @@ treemap.c:181:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 54b1518
+Wed 08 May 2024 08:57:36 PM UTC: 
+ treemap.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:183:1: error: control reaches end of non-void function [-Werror=return-type]
+  183 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+36a8566
