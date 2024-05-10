@@ -300,3 +300,21 @@ Wed 08 May 2024 09:46:11 PM UTC:
  tests:  24|1
 total_score: 55/70
 f5a291a
+Fri 10 May 2024 02:57:28 PM UTC: 
+ treemap.c | 34 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 33 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:270:34: error: ‘pair’ undeclared (first use in this function); did you mean ‘Pair’?
+  270 |             if (tree->lower_than(pair, tree->current->pair) == 1))
+      |                                  ^~~~
+      |                                  Pair
+treemap.c:270:34: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:270:66: error: expected statement before ‘)’ token
+  270 |             if (tree->lower_than(pair, tree->current->pair) == 1))
+      |                                                                  ^
+treemap.c:274:13: error: ‘else’ without a previous ‘if’
+  274 |             else
+      |             ^~~~
+Compilation failed
+795c904
