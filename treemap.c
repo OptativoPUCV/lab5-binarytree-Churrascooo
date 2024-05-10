@@ -264,20 +264,16 @@ Pair * nextTreeMap(TreeMap * tree)
         }
         else
         {
-            TreeNode *parent = tree->current->parent;
-            while (parent != NULL && tree->lower_than(tree->current->pair, parent->pair))
+            while (aux->parent != NULL && aux->parent->right == aux)
             {
-                parent = parent->parent;
+                aux = aux->parent;
             }
-            if (parent == NULL)
+            if (aux->parent == NULL)
             {
                 return NULL;
             }
-            else
-            {
-                tree->current = parent;
-                return tree->current->pair;        
-            }        
+            tree->current = aux;
+            return tree->current->pair;
         }
     }
 }
