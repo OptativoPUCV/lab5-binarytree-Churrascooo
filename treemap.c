@@ -268,12 +268,15 @@ Pair * nextTreeMap(TreeMap * tree)
             {
                 aux = aux->parent;
             }
+            tree->current = aux;
             if (aux->parent == NULL)
             {
                 return NULL;
             }
-            tree->current = aux;
-            return tree->current->pair;
+            else
+            {
+                return aux->parent->pair;
+            }
         }
     }
 }
