@@ -255,26 +255,28 @@ Pair * nextTreeMap(TreeMap * tree)
         {
             tree->current = tree->current->right;
             tree->current->right = tree->current->left;
-            if (tree->current->left == NULL)
+            while (tree->current->left == NULL)
             {
-                return NULL;
+                tree->current = tree->current->left;
             }
-            else
-            {
-                return tree->current->pair;
-            }
+            return tree->current->pair;
         }
         else
         {
-            tree->current = tree->current;
-            if (tree->lower_than(tree->root, tree->current->pair) == 1))
+            TreeNode *parent = tree->current->parent;
+            while (parent != NULL && tree->lower_than(tree->current->pair, parent->pair))
             {
-                return NULL;
+                tree->current = parent;
             }
-            else
-            {
-                return tree->current->pair;
-            }
+        }
+        if (tree->current == NULL)
+        {
+            return NULL;
+        }
+        else
+        {
+            tree->current = tree->current->parent;
+            return tree->current->parent->pair;
         }
     }
 }
