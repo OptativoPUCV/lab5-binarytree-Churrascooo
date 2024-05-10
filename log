@@ -318,3 +318,16 @@ treemap.c:274:13: error: ‘else’ without a previous ‘if’
       |             ^~~~
 Compilation failed
 795c904
+Fri 10 May 2024 03:36:38 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:270:72: error: expected statement before ‘)’ token
+  270 |             if (tree->lower_than(tree->root, tree->current->pair) == 1))
+      |                                                                        ^
+treemap.c:274:13: error: ‘else’ without a previous ‘if’
+  274 |             else
+      |             ^~~~
+Compilation failed
+c2da450
